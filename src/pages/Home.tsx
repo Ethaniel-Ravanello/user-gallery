@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import _ from "lodash";
 
@@ -6,6 +6,7 @@ import Data from "../../temp";
 
 import Crowd from "../assets/Crowd.png";
 import Card from "../components/Card";
+import Footer from "../components/Footer";
 
 interface Url {
   image: string;
@@ -20,6 +21,8 @@ interface Dat {
   name: string;
   username: string;
   email: string;
+  image: string;
+  url: string;
 }
 
 const Home = () => {
@@ -62,12 +65,12 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="w-full h-fit justify-between flex">
+        <div className="w-full h-fit justify-between flex px-10">
           <p className="text-4xl pt-2">List Of Users</p>
           <input type="text" className="w-[300px] h-[45px] px-5 mb-10 " />
         </div>
 
-        <div className="grid grid-cols-4 gap-10 w-full">
+        <div className="flex justify-around flex-wrap gap-8 w-full px-8">
           {merged.map((index: Dat) => {
             return (
               <Card
@@ -76,12 +79,13 @@ const Home = () => {
                 name={index.name}
                 username={index.username}
                 email={index.email}
-                image={index.index}
+                image={index.url}
               />
             );
           })}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

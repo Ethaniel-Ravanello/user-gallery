@@ -8,7 +8,10 @@ interface Data {
 
 const Card = ({ name, username, email, image, keys }: Data) => {
   return (
-    <div key={keys} className="w-[400px] h-[400px] relative bg-white">
+    <div
+      key={keys}
+      className="w-[400px] h-[400px] relative bg-white shadow-2xl"
+    >
       <div>
         <img
           src={image}
