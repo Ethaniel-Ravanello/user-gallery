@@ -13,7 +13,7 @@ const Card = ({ name, username, email, image, keys, diKlik }: Data) => {
       <div
         key={keys}
         onClick={diKlik}
-        className="w-[400px] h-[400px] relative bg-white shadow-2xl"
+        className="w-[400px] h-[400px] relative bg-white shadow-2xl cursor-pointer"
       >
         <div>
           <img
