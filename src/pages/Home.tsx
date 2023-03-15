@@ -58,14 +58,14 @@ const Home = () => {
         </div>
 
         <div className="flex justify-around gap-10 w-full flex-wrap">
-          {user.map((index) => {
+          {user.map((index: Dat) => {
             return (
               <div key={index.id}>
                 {Data.map((url) => {
                   return (
                     <Card
-                      id={index.id}
                       key={url.id}
+                      keys={url.url}
                       name={index.name}
                       username={index.username}
                       email={index.email}

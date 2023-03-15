@@ -7,6 +7,7 @@ interface Data {
   username: string;
   email: string;
   image: string;
+  keys: string;
 }
 
 const Card = ({ name, username, email, image, keys }: Data) => {
@@ -14,7 +15,6 @@ const Card = ({ name, username, email, image, keys }: Data) => {
     <div key={keys} className="w-[400px] h-[400px] relative bg-white">
       <div>
         <img
-          key={keys}
           src={image}
           alt=""
           className="w-full h-[200px] object-cover"
