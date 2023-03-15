@@ -1,7 +1,3 @@
-import React from "react";
-
-import zelda from "../assets/Zelda.jpg";
-
 interface Data {
   name: string;
   username: string;
