@@ -16,6 +16,7 @@ interface Url {
 interface Dat {
   id: number;
   key: number;
+  keys: number;
   name: string;
   username: string;
   email: string;
@@ -67,22 +68,16 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-4 gap-10 w-full">
-          {user.map((index: Dat) => {
+          {merged.map((index: Dat) => {
             return (
-              <div key={index.id}>
-                {Data.map((url) => {
-                  return (
-                    <Card
-                      key={url.id}
-                      keys={url.url}
-                      name={index.name}
-                      username={index.username}
-                      email={index.email}
-                      image={url.url}
-                    />
-                  );
-                })}
-              </div>
+              <Card
+                key={index.id}
+                keys={index.id}
+                name={index.name}
+                username={index.username}
+                email={index.email}
+                image={index.index}
+              />
             );
           })}
         </div>
