@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 import Navbar from "./components/Navbar";
 
@@ -8,15 +10,17 @@ const Detail = lazy(() => import("./pages/Detail"));
 
 const App = function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={"Loadingg"}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detail" element={<Detail />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Suspense fallback={"Loadingg"}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/detail" element={<Detail />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

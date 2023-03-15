@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setFilter } from "../Slices/filterSlice";
 import axios from "axios";
 import _ from "lodash";
 
@@ -28,6 +30,19 @@ interface Dat {
 
 const Home = () => {
   const [user, setUser] = useState([]);
+
+  const navigate = useNavigate();
+
+  let merged = _(user)
+    .concat(Data)
+    .groupBy("id")
+    .map(_.spread(_.merge))
+    .value();
+  console.log(merged);
+
+  const filter = useSelector((state: any) => state.userFilter.filter);
+  const dispatch = useDispatch();
+
   const getUser = async () => {
     await axios
       .get("https://jsonplaceholder.typicode.com/users")
@@ -43,17 +58,8 @@ const Home = () => {
     getUser();
   }, []);
 
-  const navigate = useNavigate();
-
-  let merged = _(user)
-    .concat(Data)
-    .groupBy("id")
-    .map(_.spread(_.merge))
-    .value();
-  console.log(merged);
-
   return (
-    <div className="w-full h-max">
+    <div className="w-full h-max bg-slate-200">
       <div className="w-full h-fit relative">
         <img
           src={Crowd}
@@ -69,29 +75,38 @@ const Home = () => {
         </div>
         <div className="w-full h-fit justify-between flex px-10">
           <p className="text-4xl pt-2">List Of Users</p>
-          <input type="text" className="w-[300px] h-[45px] px-5 mb-10 " />
+          <input
+            type="text"
+            onChange={(e) => dispatch(setFilter(e.target.value))}
+            value={filter}
+            className="w-[300px] h-[45px] px-5 mb-10 mt-2 rounded-lg "
+          />
         </div>
 
         <div className="flex justify-around flex-wrap gap-8 w-full px-8">
-          {merged.map((index: Dat) => {
-            return (
-              <Card
-                key={index.id}
-                keys={index.id}
-                name={index.name}
-                username={index.username}
-                email={index.email}
-                image={index.url}
-                diKlik={() => {
-                  navigate("/detail", {
-                    state: {
-                      id: index.id,
-                    },
-                  });
-                }}
-              />
-            );
-          })}
+          {merged
+            .filter((user) =>
+              filter ? user.name.toLowerCase().includes(filter) : true
+            )
+            .map((index: Dat) => {
+              return (
+                <Card
+                  key={index.id}
+                  keys={index.id}
+                  name={index.name}
+                  username={index.username}
+                  email={index.email}
+                  image={index.url}
+                  diKlik={() => {
+                    navigate("/detail", {
+                      state: {
+                        id: index.id,
+                      },
+                    });
+                  }}
+                />
+              );
+            })}
         </div>
       </div>
       <Footer />
