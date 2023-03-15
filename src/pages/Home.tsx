@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import _ from "lodash";
 
@@ -43,6 +44,8 @@ const Home = () => {
     getUser();
   }, []);
 
+  const navigate = useNavigate();
+
   let merged = _(user)
     .concat(Data)
     .groupBy("id")
@@ -80,6 +83,13 @@ const Home = () => {
                 username={index.username}
                 email={index.email}
                 image={index.url}
+                diKlik={() => {
+                  navigate("/detail", {
+                    state: {
+                      id: index.id,
+                    },
+                  });
+                }}
               />
             );
           })}
