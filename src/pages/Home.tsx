@@ -33,7 +33,6 @@ const Home = () => {
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => {
         setUser(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
