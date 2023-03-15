@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import _ from "lodash";
 
 import Data from "../../temp";
 
@@ -37,6 +38,14 @@ const Home = () => {
   useEffect(() => {
     getUser();
   }, []);
+
+  let merged = _(user)
+    .concat(Data)
+    .groupBy("id")
+    .map(_.spread(_.merge))
+    .value();
+  console.log(merged);
+
   return (
     <div className="w-full h-max">
       <div className="w-full h-fit relative">
@@ -57,7 +66,7 @@ const Home = () => {
           <input type="text" className="w-[300px] h-[45px] px-5 mb-10 " />
         </div>
 
-        <div className="flex justify-around gap-10 w-full flex-wrap">
+        <div className="grid grid-cols-4 gap-10 w-full">
           {user.map((index: Dat) => {
             return (
               <div key={index.id}>

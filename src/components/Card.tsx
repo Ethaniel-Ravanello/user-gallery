@@ -3,7 +3,7 @@ interface Data {
   username: string;
   email: string;
   image: string;
-  keys: string;
+  keys: number;
 }
 
 const Card = ({ name, username, email, image, keys }: Data) => {
