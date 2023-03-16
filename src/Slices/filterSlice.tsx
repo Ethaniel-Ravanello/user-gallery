@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { filter } from "lodash";
 
 const initialState = {
   filter: "",

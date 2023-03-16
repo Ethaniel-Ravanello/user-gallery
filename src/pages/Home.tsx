@@ -26,15 +26,21 @@ interface Dat {
   email: string;
   image: string;
   url: string;
+  index: any;
 }
 
 const Home = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState<Dat[]>([]);
 
   const navigate = useNavigate();
 
   let merged = _(user)
-    .concat(Data)
+    .concat(
+      Data.map((data) => ({
+        id: data.id,
+        url: data.url,
+      }))
+    )
     .groupBy("id")
     .map(_.spread(_.merge))
     .value();
@@ -97,6 +103,7 @@ const Home = () => {
                   username={index.username}
                   email={index.email}
                   image={index.url}
+                  index={index}
                   diKlik={() => {
                     navigate("/detail", {
                       state: {
