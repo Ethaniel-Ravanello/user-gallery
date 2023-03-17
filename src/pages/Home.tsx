@@ -10,6 +10,7 @@ import Data from "../../temp";
 import Crowd from "../assets/Crowd.png";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+import { AiOutlineSearch } from "react-icons/ai";
 
 interface Url {
   image: string;
@@ -29,6 +30,11 @@ interface Dat {
   index: any;
 }
 
+interface Merge {
+  id: number;
+  url: string;
+}
+
 const Home = () => {
   const [user, setUser] = useState<Dat[]>([]);
 
@@ -36,7 +42,7 @@ const Home = () => {
 
   let merged = _(user)
     .concat(
-      Data.map((data) => ({
+      Data.map((data: Merge) => ({
         id: data.id,
         url: data.url,
       }))
@@ -79,14 +85,17 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="w-full h-fit justify-between flex px-10">
+        <div className="w-full h-fit justify-between mt-5 flex px-10">
           <p className="text-4xl pt-2">List Of Users</p>
-          <input
-            type="text"
-            onChange={(e) => dispatch(setFilter(e.target.value))}
-            value={filter}
-            className="w-[300px] h-[45px] px-5 mb-10 mt-2 rounded-lg "
-          />
+          <div className="relative">
+            <input
+              type="text"
+              onChange={(e) => dispatch(setFilter(e.target.value))}
+              value={filter}
+              className="w-[300px] h-[45px] pl-10 pr-5 mb-10 mt-2 rounded-lg "
+            />
+            <AiOutlineSearch className="absolute z-50 w-5 h-5 top-[22px] left-[10px]" />
+          </div>
         </div>
 
         <div className="flex justify-around flex-wrap gap-8 w-full px-8">

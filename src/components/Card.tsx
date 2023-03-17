@@ -14,16 +14,13 @@ interface Data {
 
 const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
   const dispatch = useDispatch();
-  const handleAddToLike = (product) => {
-    dispatch(addLike(product));
-  };
-  const like = useSelector((state) => state.userLiked);
+  const like = useSelector((state: any) => state.userLiked);
   console.log(like);
   return (
     <>
       <div
         key={keys}
-        className="w-[400px] h-[400px] relative bg-white shadow-2xl cursor-pointer"
+        className="w-[400px] h-[400px] relative bg-white shadow-2xl cursor-pointer hover:transition hover:ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300"
       >
         <div>
           <img
@@ -41,7 +38,7 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
           <div className="w-full h-fit pt-6 pb-2">
             <AiFillHeart
               className={`w-7 h-7 text-black active:text-red-600 `}
-              onClick={() => handleAddToLike(index)}
+              onClick={() => dispatch(addLike(index))}
             />
           </div>
         </div>

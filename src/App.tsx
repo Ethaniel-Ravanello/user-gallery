@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 
 const Home = lazy(() => import("./pages/Home"));
 const Detail = lazy(() => import("./pages/Detail"));
+const Like = lazy(() => import("./pages/Like"));
 
 const App = function App() {
   return (
@@ -17,6 +18,7 @@ const App = function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detail" element={<Detail />} />
+            <Route path="/liked" element={<Like />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
