@@ -43,7 +43,9 @@ const Like = () => {
         <div className="w-full min-h-[570px] flex flex-wrap gap-8 justify-around">
           {like
             .filter((user) =>
-              filter ? user.name.toLowerCase().includes(filter) : true
+              filter
+                ? user.name.toLowerCase().toUpperCase().includes(filter)
+                : true
             )
             .map((data: Data) => {
               return (
