@@ -19,6 +19,11 @@ interface Data {
   index: any;
 }
 
+interface User {
+  user: string;
+  name: string;
+}
+
 const Like = () => {
   const dispatch = useDispatch();
   const filter = useSelector((state: any) => state.userFilter.filter);
@@ -42,7 +47,7 @@ const Like = () => {
         </div>
         <div className="w-full min-h-[570px] flex flex-wrap gap-8 justify-around">
           {like
-            .filter((user) =>
+            .filter((user: User) =>
               filter
                 ? user.name.toLowerCase().toUpperCase().includes(filter)
                 : true

@@ -1,4 +1,6 @@
-const Data = [
+import type { Url } from "./type";
+
+const Data: Url[] = [
   {
     id: 1,
     url: "https://img.apmcdn.org/ebacb565e6ca1f8dd8bbd97d24e89dfb5c5c9b48/normal/5e48cc-20190327-keanu-reeves.jpg",

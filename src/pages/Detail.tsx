@@ -4,6 +4,7 @@ import _ from "lodash";
 import axios from "axios";
 
 import Data from "../../temp";
+import type { Url } from "../../type";
 
 import Footer from "../components/Footer";
 
@@ -11,15 +12,14 @@ const Detail = () => {
   const [userData, setUserData] = useState([]);
 
   const getUser = async () => {
-    await axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => {
-        setUserData(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setUserData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
@@ -28,17 +28,17 @@ const Detail = () => {
 
   const location = useLocation();
   const detailId = location?.state.id;
-  console.log(detailId);
 
-  let merged = _(userData)
+  let merged: any[] = _(userData)
     .concat(Data)
     .groupBy("id")
     .map(_.spread(_.merge))
     .value();
+
   console.log(merged);
   return (
     <div className="w-full h-full">
-      {merged.map((data) => {
+      {merged.map((data: any) => {
         if (data.id === detailId) {
           return (
             <div className="p-[80px] w-fit mx-auto flex justify-around">

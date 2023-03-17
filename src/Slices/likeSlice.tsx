@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
 
 interface Movie {
   id: number;
@@ -9,8 +8,13 @@ interface LikeState {
   likePage: Movie[];
 }
 
+// const initialState: LikeState = {
+//   likePage: JSON.parse(sessionStorage.getItem("favorite")) || [],
+// };
+
+const storedLikes = sessionStorage.getItem("favorite");
 const initialState: LikeState = {
-  likePage: JSON.parse(sessionStorage.getItem("favorite")) || [],
+  likePage: storedLikes ? JSON.parse(storedLikes) : [],
 };
 
 export const likeSlice = createSlice({
