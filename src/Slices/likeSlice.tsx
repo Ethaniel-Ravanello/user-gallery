@@ -8,10 +8,6 @@ interface LikeState {
   likePage: Movie[];
 }
 
-// const initialState: LikeState = {
-//   likePage: JSON.parse(sessionStorage.getItem("favorite")) || [],
-// };
-
 const storedLikes = sessionStorage.getItem("favorite");
 const initialState: LikeState = {
   likePage: storedLikes ? JSON.parse(storedLikes) : [],
