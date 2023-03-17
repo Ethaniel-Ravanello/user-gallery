@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addLike } from "../Slices/likeSlice";
+
+import { AiFillHeart } from "react-icons/ai";
 interface Data {
   name: string;
   username: string;
@@ -36,12 +38,12 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
           <h2 className="text-xl">{name}</h2>
           <h3 className="text-slate-600 mt-5">{username}</h3>
           <h3 className="text-slate-600 mt-1">{email}</h3>
-          <button
-            className="bg-slate-800 text-white"
-            onClick={() => handleAddToLike(index)}
-          >
-            Add To Favorite
-          </button>
+          <div className="w-full h-fit pt-6 pb-2">
+            <AiFillHeart
+              className={`w-7 h-7 text-black active:text-red-600 `}
+              onClick={() => handleAddToLike(index)}
+            />
+          </div>
         </div>
       </div>
     </>
