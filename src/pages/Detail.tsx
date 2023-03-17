@@ -73,7 +73,7 @@ const Detail = () => {
                     <p className="my-3">{data.phone}</p>
                     <p className="my-3">{data.website}</p>
                     <p className="my-3">
-                      {data.address?.city}, {data.address?.street},{" "}
+                      {data.address?.city}, {data.address?.street},
                       {data.address?.suite}
                     </p>
                   </div>
@@ -83,7 +83,6 @@ const Detail = () => {
           );
         }
       })}
-      <Footer />
     </div>
   );
 };

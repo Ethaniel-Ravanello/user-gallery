@@ -5,14 +5,28 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../components/Card";
 
 import { AiOutlineSearch } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+
+interface Data {
+  id: number;
+  key: number;
+  keys: number;
+  name: string;
+  username: string;
+  email: string;
+  image: string;
+  url: string;
+  index: any;
+}
 
 const Like = () => {
   const dispatch = useDispatch();
   const filter = useSelector((state: any) => state.userFilter.filter);
   const like = useSelector((state: any) => state.userLiked.likePage);
+  const navigate = useNavigate();
   console.log(like);
   return (
-    <div className="w-full h-full bg-slate-200">
+    <div className="w-full h-max bg-slate-200">
       <div className="px-10">
         <div className="w-full h-fit justify-between pt-10 flex">
           <p className="text-4xl pt-2">List Of Users</p>
@@ -26,18 +40,32 @@ const Like = () => {
             <AiOutlineSearch className="absolute z-50 w-5 h-5 top-[22px] left-[10px]" />
           </div>
         </div>
-        {like.map((data) => {
-          return (
-            <Card
-              key={data.id}
-              keys={data.id}
-              name={data.name}
-              username={data.username}
-              email={data.email}
-              image={data.url}
-            />
-          );
-        })}
+        <div className="w-full min-h-[570px] flex flex-wrap gap-8 justify-around">
+          {like
+            .filter((user) =>
+              filter ? user.name.toLowerCase().includes(filter) : true
+            )
+            .map((data: Data) => {
+              return (
+                <Card
+                  key={data.id}
+                  keys={data.id}
+                  name={data.name}
+                  username={data.username}
+                  email={data.email}
+                  image={data.url}
+                  diKlik={() => {
+                    navigate("/detail", {
+                      state: {
+                        id: data.id,
+                      },
+                    });
+                  }}
+                  index={data}
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

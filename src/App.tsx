@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const Detail = lazy(() => import("./pages/Detail"));
@@ -20,6 +21,7 @@ const App = function App() {
             <Route path="/detail" element={<Detail />} />
             <Route path="/liked" element={<Like />} />
           </Routes>
+          <Footer />
         </Suspense>
       </BrowserRouter>
     </Provider>
