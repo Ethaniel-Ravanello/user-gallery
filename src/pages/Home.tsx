@@ -30,27 +30,44 @@ interface Dat {
   index: any;
 }
 
+type Users = {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
+};
+
 interface Merge {
   id: number;
   url: string;
+}
+
+interface User {
+  user: string;
+  name: string;
 }
 
 const Home = () => {
   const [user, setUser] = useState<Dat[]>([]);
 
   const navigate = useNavigate();
-
-  let merged = _(user)
-    .concat(
-      Data.map((data: Merge) => ({
-        id: data.id,
-        url: data.url,
-      }))
-    )
-    .groupBy("id")
-    .map(_.spread(_.merge))
-    .value();
-  console.log(merged);
 
   const filter = useSelector((state: any) => state.userFilter.filter);
   const dispatch = useDispatch();
@@ -69,6 +86,11 @@ const Home = () => {
   useEffect(() => {
     getUser();
   }, []);
+
+  const mergedArray = user.map((item1) => {
+    const item2 = Data.find((item2) => item2.id === item1.id);
+    return { ...item1, ...item2 };
+  });
 
   return (
     <div className="w-full h-max bg-slate-200">
@@ -99,7 +121,7 @@ const Home = () => {
         </div>
 
         <div className="flex justify-around flex-wrap gap-8 w-full px-8">
-          {merged
+          {mergedArray
             .filter((user) =>
               filter ? user.name.toLowerCase().includes(filter) : true
             )

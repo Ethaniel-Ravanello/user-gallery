@@ -8,18 +8,42 @@ import type { Url } from "../../type";
 
 import Footer from "../components/Footer";
 
+type User = {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
+};
+
 const Detail = () => {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState<User[]>([]);
 
   const getUser = async () => {
-    try {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-      setUserData(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    await axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        setUserData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
@@ -29,16 +53,14 @@ const Detail = () => {
   const location = useLocation();
   const detailId = location?.state.id;
 
-  let merged: any[] = _(userData)
-    .concat(Data)
-    .groupBy("id")
-    .map(_.spread(_.merge))
-    .value();
+  const mergedArray = userData.map((item1) => {
+    const item2 = Data.find((item2) => item2.id === item1.id);
+    return { ...item1, ...item2 };
+  });
 
-  console.log(merged);
   return (
     <div className="w-full h-full">
-      {merged.map((data: any) => {
+      {mergedArray.map((data: any) => {
         if (data.id === detailId) {
           return (
             <div className="p-[80px] w-fit mx-auto flex justify-around">
