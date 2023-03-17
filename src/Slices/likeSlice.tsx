@@ -18,13 +18,13 @@ export const likeSlice = createSlice({
   initialState,
   reducers: {
     addLike: (state, action) => {
-      const { id } = action.payload;
-      state.map((item) => {
-        if (!item.id === id) {
-          state.likePage.push(action.payload);
-          sessionStorage.setItem("favorite", JSON.stringify(state.likePage));
-        }
-      });
+      const newItem = action.payload;
+      const existItem = state.likePage.find((item) => item.id === newItem.id);
+
+      if (!existItem) {
+        state.likePage.push(action.payload);
+      }
+      sessionStorage.setItem("favorite", JSON.stringify(state.likePage));
     },
   },
 });
