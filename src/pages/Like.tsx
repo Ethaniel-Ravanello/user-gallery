@@ -44,6 +44,7 @@ const Like = () => {
             <AiOutlineSearch className="absolute z-50 w-5 h-5 top-[22px] left-[10px]" />
           </div>
         </div>
+
         <div className="w-full min-h-[570px] flex flex-wrap gap-8 justify-around">
           {like
             .filter((user: User) =>
