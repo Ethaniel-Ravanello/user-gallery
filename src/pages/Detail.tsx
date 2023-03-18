@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import _ from "lodash";
 import axios from "axios";
 
 import Data from "../../temp";
-import type { Url } from "../../type";
-
-import Footer from "../components/Footer";
 
 type User = {
   id: number;
@@ -41,9 +37,7 @@ const Detail = () => {
       .then((res) => {
         setUserData(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   useEffect(() => {
@@ -82,6 +76,7 @@ const Detail = () => {
                     <p className="my-3">Website</p>
                     <p className="my-3">Address</p>
                   </div>
+
                   <div className="mx-10">
                     <p className="my-3">:</p>
                     <p className="my-3">:</p>
@@ -89,6 +84,7 @@ const Detail = () => {
                     <p className="my-3">:</p>
                     <p className="my-3">:</p>
                   </div>
+
                   <div>
                     <p className="my-3">{data.username}</p>
                     <p className="my-3">{data.email}</p>
