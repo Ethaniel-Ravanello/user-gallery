@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilter } from "../Slices/filterSlice";
 import axios from "axios";
+import { addLike } from "../Slices/likeSlice";
 import _ from "lodash";
 
 import Data from "../../temp";
@@ -28,40 +29,8 @@ interface Dat {
   image: string;
   url: string;
   index: any;
-}
-
-type Users = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-};
-
-interface Merge {
-  id: number;
-  url: string;
-}
-
-interface User {
-  user: string;
-  name: string;
+  dispatchs: any
+  heart: any
 }
 
 const Home = () => {
@@ -134,6 +103,7 @@ const Home = () => {
                   email={index.email}
                   image={index.url}
                   index={index}
+                  dispatchs={dispatch(addLike(index)),}
                   diKlik={() => {
                     navigate("/detail", {
                       state: {

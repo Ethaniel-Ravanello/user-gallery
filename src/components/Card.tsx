@@ -11,9 +11,21 @@ interface Data {
   keys: number;
   diKlik: any;
   index: any;
+  dispatchs: any;
+  heart: any;
 }
 
-const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
+const Card = ({
+  name,
+  username,
+  email,
+  image,
+  keys,
+  diKlik,
+  index,
+  dispatchs,
+  heart,
+}: Data) => {
   const dispatch = useDispatch();
   const like = useSelector((state: any) => state.userLiked);
   console.log(like);
