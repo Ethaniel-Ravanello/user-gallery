@@ -8,7 +8,7 @@ interface LikeState {
   likePage: Movie[];
 }
 
-const storedLikes = sessionStorage.getItem("favorite");
+const storedLikes = localStorage.getItem("favorite");
 const initialState: LikeState = {
   likePage: storedLikes ? JSON.parse(storedLikes) : [],
 };
@@ -24,7 +24,7 @@ export const likeSlice = createSlice({
       if (!existItem) {
         state.likePage.push(action.payload);
       }
-      sessionStorage.setItem("favorite", JSON.stringify(state.likePage));
+      localStorage.setItem("favorite", JSON.stringify(state.likePage));
     },
     deleteLike: (state, action: PayloadAction<number>) => {
       const itemId = action.payload;
@@ -33,7 +33,7 @@ export const likeSlice = createSlice({
       if (itemIndex) {
         state.likePage.splice(itemIndex, 1);
       }
-      sessionStorage.setItem("favorite", JSON.stringify(state.likePage));
+      localStorage.setItem("favorite", JSON.stringify(state.likePage));
     },
   },
 });

@@ -13,17 +13,30 @@ interface Data {
   index: any;
 }
 
+interface LikePageItem {
+  id: number;
+}
+
+interface LikeState {
+  likePage: LikePageItem[];
+  id: number;
+}
+
 const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
   const [liked, setLiked] = useState(false);
 
   const dispatch = useDispatch();
   const like = useSelector((state: any) => state.userLiked);
+  let result = like.likePage.map((a: LikeState) => a.id);
+
   console.log(like);
+  console.log(result);
+  console.log(keys);
   return (
     <>
       <div
         key={keys}
-        className="w-[400px] h-[400px] relative bg-white shadow-2xl cursor-pointer hover:transition hover:ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300"
+        className="w-[400px] h-[400px] relative rounded-lg bg-white shadow-2xl cursor-pointer hover:transition hover:ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300"
       >
         <div>
           <img
@@ -39,7 +52,7 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
           <h3 className="text-slate-600 mt-5">{username}</h3>
           <h3 className="text-slate-600 mt-1">{email}</h3>
           <div className="w-full h-fit pt-6 pb-2">
-            {liked ? (
+            {result.includes(keys) ? (
               <AiFillHeart
                 className={`w-7 h-7 text-red-600 `}
                 onClick={() => {
