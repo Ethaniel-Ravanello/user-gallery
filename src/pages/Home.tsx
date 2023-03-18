@@ -55,6 +55,7 @@ const Home = () => {
           alt="Crowd Of People"
           className="h-[500px] w-full object-cover"
         />
+
         <div className="w-full h-[500px] bg-black/70 absolute top-0">
           <div className="flex justify-center items-center h-full">
             <p className="text-white text-center text-5xl">
@@ -62,6 +63,7 @@ const Home = () => {
             </p>
           </div>
         </div>
+
         <div className="w-full h-fit justify-between mt-5 flex px-10">
           <p className="text-4xl pt-2 font-bold">List Of Users</p>
           <div className="relative">
