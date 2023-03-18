@@ -28,10 +28,6 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
   const dispatch = useDispatch();
   const like = useSelector((state: any) => state.userLiked);
   let result = like.likePage.map((a: LikeState) => a.id);
-
-  console.log(like);
-  console.log(result);
-  console.log(keys);
   return (
     <>
       <div

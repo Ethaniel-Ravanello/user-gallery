@@ -44,9 +44,7 @@ const Home = () => {
       .then((res) => {
         setUser(res.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   useEffect(() => {

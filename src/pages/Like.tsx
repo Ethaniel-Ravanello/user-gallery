@@ -29,7 +29,6 @@ const Like = () => {
   const filter = useSelector((state: any) => state.userFilter.filter);
   const like = useSelector((state: any) => state.userLiked.likePage);
   const navigate = useNavigate();
-  console.log(like);
   return (
     <div className="w-full h-max bg-slate-200">
       <div className="px-10">
