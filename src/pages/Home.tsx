@@ -10,12 +10,6 @@ import Crowd from "../assets/Crowd.png";
 import Card from "../components/Card";
 import { AiOutlineSearch } from "react-icons/ai";
 
-interface Url {
-  image: string;
-  url: string;
-  id: number;
-}
-
 interface Dat {
   id: number;
   key: number;
