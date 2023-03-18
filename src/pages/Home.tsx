@@ -3,14 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilter } from "../Slices/filterSlice";
 import axios from "axios";
-import { addLike } from "../Slices/likeSlice";
-import _ from "lodash";
 
 import Data from "../../temp";
 
 import Crowd from "../assets/Crowd.png";
 import Card from "../components/Card";
-import Footer from "../components/Footer";
 import { AiOutlineSearch } from "react-icons/ai";
 
 interface Url {
