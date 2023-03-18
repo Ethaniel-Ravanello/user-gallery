@@ -57,18 +57,18 @@ const Detail = () => {
       {mergedArray.map((data: any) => {
         if (data.id === detailId) {
           return (
-            <div className="p-[80px] w-fit mx-auto flex justify-around">
-              <img
-                src={data.url}
-                alt="Profile Picture"
-                className="w-[600px] h-[600px] object-cover mr-10"
-                loading="lazy"
-                width={600}
-                height={600}
-              />
-              <div className="w-full p-10 ml-10">
+            <div className="w-full h-full mx-auto lg:flex justify-around">
+              <div className="w-full h-full">
+                <img
+                  src={data.url}
+                  alt="Profile Picture"
+                  className="w-full lg:h-screen object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="w-full h-full p-2 lg:p-10 ">
                 <h2 className="text-5xl font-semibold mb-10">{data.name}</h2>
-                <div className="w-full flex justify-between text-3xl">
+                <div className="w-full flex justify-between text-xl lg:text-3xl">
                   <div>
                     <p className="my-3">Username</p>
                     <p className="my-3">Email</p>
@@ -77,7 +77,7 @@ const Detail = () => {
                     <p className="my-3">Address</p>
                   </div>
 
-                  <div className="mx-10">
+                  <div className="mx-5">
                     <p className="my-3">:</p>
                     <p className="my-3">:</p>
                     <p className="my-3">:</p>
@@ -85,12 +85,20 @@ const Detail = () => {
                     <p className="my-3">:</p>
                   </div>
 
-                  <div>
-                    <p className="my-3">{data.username}</p>
-                    <p className="my-3">{data.email}</p>
-                    <p className="my-3">{data.phone}</p>
-                    <p className="my-3">{data.website}</p>
-                    <p className="my-3">
+                  <div className="w-fit">
+                    <p className="my-3 max-w-fit h-fit break-all flex-wrap">
+                      {data.username}
+                    </p>
+                    <p className="my-3 max-w-fit h-fit break-all flex-wrap">
+                      {data.email}
+                    </p>
+                    <p className="my-3 max-w-fit h-fit break-all flex-wrap">
+                      {data.phone}
+                    </p>
+                    <p className="my-3 max-w-fit h-fit break-all flex-wrap">
+                      {data.website}
+                    </p>
+                    <p className="my-3 max-w-fit h-fit break-all flex-wrap">
                       {data.address?.city}, {data.address?.street},
                       {data.address?.suite}
                     </p>

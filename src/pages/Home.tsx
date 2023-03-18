@@ -64,14 +64,14 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-full h-fit justify-between mt-5 flex px-10">
+        <div className="w-full h-fit justify-between mt-5 lg:flex px-10">
           <p className="text-4xl pt-2 font-bold">List Of Users</p>
           <div className="relative">
             <input
               type="text"
               onChange={(e) => dispatch(setFilter(e.target.value))}
               value={filter}
-              className="w-[300px] h-[45px] pl-10 pr-5 mb-10 mt-2 rounded-lg "
+              className="w-[80%] h-[45px] pl-10 pr-5 mb-10 mt-2 rounded-lg "
             />
             <AiOutlineSearch className="absolute z-50 w-5 h-5 top-[22px] left-[10px]" />
           </div>

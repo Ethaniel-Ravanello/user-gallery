@@ -32,14 +32,14 @@ const Like = () => {
   return (
     <div className="w-full h-max bg-slate-200">
       <div className="px-10">
-        <div className="w-full h-fit justify-between pt-10 flex">
+        <div className="w-full h-fit justify-between pt-10 lg:flex">
           <p className="text-4xl pt-2 font-bold">List Of Users</p>
           <div className="relative">
             <input
               type="text"
               onChange={(e) => dispatch(setFilter(e.target.value))}
               value={filter}
-              className="w-[300px] h-[45px] pl-10 pr-5 mb-10 mt-2 rounded-lg "
+              className="w-[80%] h-[45px] pl-10 pr-5 mb-10 mt-2 rounded-lg "
             />
             <AiOutlineSearch className="absolute z-50 w-5 h-5 top-[22px] left-[10px]" />
           </div>
