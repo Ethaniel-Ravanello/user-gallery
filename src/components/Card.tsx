@@ -11,25 +11,12 @@ interface Data {
   keys: number;
   diKlik: any;
   index: any;
-  dispatchs: any;
-  heart: any;
 }
 
-const Card = ({
-  name,
-  username,
-  email,
-  image,
-  keys,
-  diKlik,
-  index,
-  dispatchs,
-  heart,
-}: Data) => {
+const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
   const dispatch = useDispatch();
   const like = useSelector((state: any) => state.userLiked);
   console.log(like);
-  const [liked, setLiked] = useState(false);
   return (
     <>
       <div
@@ -51,9 +38,9 @@ const Card = ({
           <h3 className="text-slate-600 mt-1">{email}</h3>
           <div className="w-full h-fit pt-6 pb-2">
             <AiFillHeart
-              className={`w-7 h-7 ${liked ? "text-red-600" : "text-black"}`}
+              className={`w-7 h-7 text-black `}
               onClick={() => {
-                dispatch(addLike(index)), setLiked(!liked);
+                dispatch(addLike(index));
               }}
             />
           </div>

@@ -29,8 +29,6 @@ interface Dat {
   image: string;
   url: string;
   index: any;
-  dispatchs: any
-  heart: any
 }
 
 const Home = () => {
@@ -103,7 +101,6 @@ const Home = () => {
                   email={index.email}
                   image={index.url}
                   index={index}
-                  dispatchs={dispatch(addLike(index)),}
                   diKlik={() => {
                     navigate("/detail", {
                       state: {
