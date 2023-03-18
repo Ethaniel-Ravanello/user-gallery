@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { addLike } from "../Slices/likeSlice";
 
 import { AiFillHeart } from "react-icons/ai";
@@ -16,6 +17,7 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
   const dispatch = useDispatch();
   const like = useSelector((state: any) => state.userLiked);
   console.log(like);
+  const [liked, setLiked] = useState(false);
   return (
     <>
       <div
@@ -37,8 +39,10 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
           <h3 className="text-slate-600 mt-1">{email}</h3>
           <div className="w-full h-fit pt-6 pb-2">
             <AiFillHeart
-              className={`w-7 h-7 text-black active:text-red-600 `}
-              onClick={() => dispatch(addLike(index))}
+              className={`w-7 h-7 ${liked ? "text-red-600" : "text-black"}`}
+              onClick={() => {
+                dispatch(addLike(index)), setLiked(!liked);
+              }}
             />
           </div>
         </div>

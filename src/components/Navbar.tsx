@@ -15,12 +15,20 @@ const Navbar = () => {
           width={50}
           height={50}
         />
-        <p
-          onClick={() => navigate("/liked")}
-          className="text-xl cursor-pointer font-bold w-fit ml-10 pt-2"
-        >
-          Like People
-        </p>
+        <div className="flex w-fit">
+          <p
+            onClick={() => navigate("/")}
+            className="text-xl cursor-pointer font-bold w-fit ml-10 pt-2"
+          >
+            Home
+          </p>
+          <p
+            onClick={() => navigate("/liked")}
+            className="text-xl cursor-pointer font-bold w-fit ml-10 pt-2"
+          >
+            Like
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -66,7 +66,6 @@ interface User {
 
 const Home = () => {
   const [user, setUser] = useState<Dat[]>([]);
-
   const navigate = useNavigate();
 
   const filter = useSelector((state: any) => state.userFilter.filter);
@@ -98,9 +97,9 @@ const Home = () => {
         <img
           src={Crowd}
           alt="Crowd Of People"
-          className="h-[300px] w-full object-cover"
+          className="h-[500px] w-full object-cover"
         />
-        <div className="w-full h-[300px] bg-black/70 absolute top-0">
+        <div className="w-full h-[500px] bg-black/70 absolute top-0">
           <div className="flex justify-center items-center h-full">
             <p className="text-white text-center text-5xl">
               Discover New People
@@ -108,7 +107,7 @@ const Home = () => {
           </div>
         </div>
         <div className="w-full h-fit justify-between mt-5 flex px-10">
-          <p className="text-4xl pt-2">List Of Users</p>
+          <p className="text-4xl pt-2 font-bold">List Of Users</p>
           <div className="relative">
             <input
               type="text"

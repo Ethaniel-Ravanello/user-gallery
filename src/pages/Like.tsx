@@ -34,7 +34,7 @@ const Like = () => {
     <div className="w-full h-max bg-slate-200">
       <div className="px-10">
         <div className="w-full h-fit justify-between pt-10 flex">
-          <p className="text-4xl pt-2">List Of Users</p>
+          <p className="text-4xl pt-2 font-bold">List Of Users</p>
           <div className="relative">
             <input
               type="text"
