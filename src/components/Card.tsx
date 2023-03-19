@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { addLike, deleteLike } from "../Slices/likeSlice";
 
-import { AiFillHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 interface Data {
   name: string;
   username: string;
@@ -56,7 +56,7 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
                 }}
               />
             ) : (
-              <AiFillHeart
+              <AiOutlineHeart
                 className={`w-7 h-7 text-black `}
                 onClick={() => {
                   dispatch(addLike(index)), setLiked(!liked);
