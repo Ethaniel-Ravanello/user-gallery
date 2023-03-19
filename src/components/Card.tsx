@@ -50,14 +50,14 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
           <div className="w-full h-fit pt-6 pb-2">
             {result.includes(keys) ? (
               <AiFillHeart
-                className={`w-7 h-7 text-red-600 `}
+                className={`w-7 h-7 text-red-600 transition ease-in-out delay-150 duration-300 `}
                 onClick={() => {
                   dispatch(deleteLike(index)), setLiked(!liked);
                 }}
               />
             ) : (
               <AiOutlineHeart
-                className={`w-7 h-7 text-black `}
+                className={`w-7 h-7 text-black transition ease-in-out delay-150 duration-300 `}
                 onClick={() => {
                   dispatch(addLike(index)), setLiked(!liked);
                 }}

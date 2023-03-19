@@ -1,20 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-import Logo from "../assets/logo.png";
+import Logo from "/logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="w-full h-fit bg-[#131418] text-white">
       <div className=" py-5 px-10 flex justify-evenly">
-        <img
-          src={Logo}
-          onClick={() => navigate("/")}
-          alt="Nav Logo"
-          className="object-contain cursor-pointer"
-          width={50}
-          height={50}
-        />
+        <h2 className="pt-2 text-xl">USERS</h2>
         <div className="flex w-fit">
           <p
             onClick={() => navigate("/")}
