@@ -1,6 +1,9 @@
 {
   "name": "user-gallery",
   "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base src/ --mode development --watch --watch-poll"
+  },
   "version": "0.0.0",
   "type": "module",
   "scripts": {

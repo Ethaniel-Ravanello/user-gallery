@@ -48,7 +48,7 @@ const Home = () => {
   });
 
   return (
-    <div className="w-full h-max bg-slate-200">
+    <div className="w-full h-max bg-[#131418]">
       <div className="w-full h-fit relative">
         <img
           src={Crowd}
@@ -59,13 +59,13 @@ const Home = () => {
         <div className="w-full h-[500px] bg-black/70 absolute top-0">
           <div className="flex justify-center items-center h-full">
             <p className="text-white text-center text-5xl">
-              Discover New People
+              Discover New Peoples
             </p>
           </div>
         </div>
 
         <div className="w-full h-fit justify-between mt-5 lg:flex px-10">
-          <p className="text-4xl pt-2 font-bold">List Of Users</p>
+          <p className="text-4xl text-white pt-2 font-bold">List Of Users</p>
           <div className="relative">
             <input
               type="text"

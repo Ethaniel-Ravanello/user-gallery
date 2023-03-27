@@ -30,10 +30,12 @@ const Like = () => {
   const like = useSelector((state: any) => state.userLiked.likePage);
   const navigate = useNavigate();
   return (
-    <div className="w-full h-max bg-slate-200">
+    <div className="w-full h-max bg-[#131418]">
       <div className="px-10">
         <div className="w-full h-fit justify-between pt-10 lg:flex">
-          <p className="text-4xl pt-2 font-bold">List Of Users</p>
+          <p className="text-4xl pt-2 font-bold text-slate-100">
+            List Of Users
+          </p>
           <div className="relative">
             <input
               type="text"

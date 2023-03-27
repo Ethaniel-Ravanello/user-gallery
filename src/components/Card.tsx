@@ -32,7 +32,7 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
     <>
       <div
         key={keys}
-        className="w-[400px] h-[400px] relative rounded-lg bg-white shadow-2xl cursor-pointer hover:transition hover:ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300"
+        className="w-[400px] h-[400px] relative rounded-lg bg-[#212121] shadow-2xl cursor-pointer hover:transition hover:ease-in-out  hover:-translate-y-1 hover:scale-110 duration-300"
       >
         <div>
           <img
@@ -44,9 +44,9 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
           />
         </div>
         <div className="w-full h-full p-8">
-          <h2 className="text-xl">{name}</h2>
-          <h3 className="text-slate-600 mt-5">{username}</h3>
-          <h3 className="text-slate-600 mt-1">{email}</h3>
+          <h2 className="text-xl text-slate-100">{name}</h2>
+          <h3 className="text-slate-100 mt-5">{username}</h3>
+          <h3 className="text-slate-100 mt-1">{email}</h3>
           <div className="w-full h-fit pt-6 pb-2">
             {result.includes(keys) ? (
               <AiFillHeart
