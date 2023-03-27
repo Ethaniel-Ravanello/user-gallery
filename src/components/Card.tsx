@@ -39,7 +39,7 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
             src={image}
             onClick={diKlik}
             alt=""
-            className="w-full h-[200px] object-cover"
+            className="w-full h-[200px] object-cover rounded-t-lg"
             loading="lazy"
           />
         </div>
@@ -57,7 +57,7 @@ const Card = ({ name, username, email, image, keys, diKlik, index }: Data) => {
               />
             ) : (
               <AiOutlineHeart
-                className={`w-7 h-7 text-black transition ease-in-out delay-150 duration-300 `}
+                className={`w-7 h-7 text-white transition ease-in-out delay-150 duration-300 `}
                 onClick={() => {
                   dispatch(addLike(index)), setLiked(!liked);
                 }}
