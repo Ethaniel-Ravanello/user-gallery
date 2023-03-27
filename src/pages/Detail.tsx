@@ -53,7 +53,7 @@ const Detail = () => {
   });
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full bg-[#131418] text-white">
       {mergedArray.map((data: any) => {
         if (data.id === detailId) {
           return (
@@ -62,7 +62,7 @@ const Detail = () => {
                 <img
                   src={data.url}
                   alt="Profile Picture"
-                  className="w-full lg:h-screen object-cover"
+                  className="w-full lg:h-full object-cover"
                   loading="lazy"
                 />
               </div>
