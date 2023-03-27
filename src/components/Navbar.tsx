@@ -4,7 +4,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
-  console.log(pathname);
   return (
     <div className="w-full h-fit bg-[#131418] text-white">
       <div className=" py-5 px-10 flex justify-evenly">
@@ -20,7 +19,9 @@ const Navbar = () => {
           </p>
           <p
             onClick={() => navigate("/liked")}
-            className={`text-xl cursor-pointer font-bold w-fit ml-10 pt-2`}
+            className={`text-xl cursor-pointer font-bold w-fit ml-10 pt-2 ${
+              pathname === "/liked" ? "border-b-2 border-white" : ""
+            }`}
           >
             Like
           </p>
