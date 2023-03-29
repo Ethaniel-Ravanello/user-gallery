@@ -49,7 +49,7 @@ const Home = () => {
 
   return (
     <div className="w-full h-max bg-[#131418]">
-      <div className="w-full h-fit relative">
+      <div className="w-full h-fit relative s">
         <img
           src={Crowd}
           alt="Crowd Of People"
