@@ -16,7 +16,7 @@ interface Data {
   email: string;
   image: string;
   url: string;
-  index: any;
+  index: anys;
 }
 
 interface User {
