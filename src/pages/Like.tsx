@@ -21,7 +21,7 @@ interface Data {
 
 interface User {
   user: string;
-  name: string;
+  name: any;
 }
 
 const Like = () => {
