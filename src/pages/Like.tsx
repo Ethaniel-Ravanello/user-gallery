@@ -41,7 +41,7 @@ const Like = () => {
               type="text"
               onChange={(e) => dispatch(setFilter(e.target.value))}
               value={filter}
-              className="w-[80%] h-[45px] pl-10 pr-5 mb-10 mt-2 rounded-lg ss "
+              className="w-[80%] h-[45px] pl-10 pr-5 mb-10 mt-2 rounded-lg sss"
             />
             <AiOutlineSearch className="absolute z-50 w-5 h-5 top-[22px] left-[10px]" />
           </div>
